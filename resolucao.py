@@ -89,6 +89,10 @@ else:
     banco = corrigir_precos(banco)
     banco = corrigir_quantidade(banco)
     exportar_banco(banco)
+try:
     banco = ler_banco('saida.json')
+except UnboundLocalError:
+    print('Não foi possível ler o arquivo')
+else:
     listagem_produtos(banco)
     estoque_categoria(banco)
